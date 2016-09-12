@@ -5,13 +5,16 @@
 	<body>
 		<div class="jumbotron">
 			<div class="container">
+			<ol class="list-group">
 			{% if businesses %}
 				{% for business in businesses %}
-					{{ business.name }}
-					{{ business.rating }}
-					{{ business.phone }}
+				<li class="list-group-item">
+					{{ business.rating }} | {{ business.name }} - {{ business.phone }}
 				{% endfor %}
-				<a href="{{ url_for('index') }}">Look Up Another</a>
+				</li>
+			</ol>
+
+				[<a href="{{ url_for('index') }}">Look Up Another</a>]
 			{% else %}
 				<h1>Hello! Where do you live?</h1>
 				<form action="/" class="form-inline">
@@ -22,7 +25,7 @@
 				</form>
 			{% endif %}
 
-				<a href="{{ url_for('about') }}">About this Project</a>
+				[<a href="{{ url_for('about') }}">About this Project</a>]
 			</div>
 		</div>
 	</body>
